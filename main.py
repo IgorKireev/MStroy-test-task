@@ -19,4 +19,18 @@ class TreeStore:
     def getChildren(self, id):
         return self.children_by_parent.get(id, [])
 
+    def getAllParents(self, id):
+        result = []
+        current_item = self.items_by_id.get(id)
+        while current_item and current_item["parent"] != "root":
+            parent_id = current_item["parent"]
+            parent = self.items_by_id.get(parent_id)
+            if not parent:
+                break
+            result.append(parent)
+            current_item = parent
+        return result
+
+
+
 
