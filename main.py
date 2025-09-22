@@ -5,19 +5,24 @@ class TreeStore:
         self.children_by_parent = {}
         self.build_index()
 
+
     def build_index(self) -> None:
         for item in self.list_items:
             self.items_by_id[item["id"]] = item
             self.children_by_parent.setdefault(item["parent"], []).append(item)
 
+
     def getAll(self) -> list:
         return self.list_items
+
 
     def getItem(self, id: int) -> dict:
         return self.items_by_id.get(id)
 
+
     def getChildren(self, id: int) -> list:
         return self.children_by_parent.get(id, [])
+
 
     def getAllParents(self, id: int) -> list:
         result = []
@@ -30,7 +35,3 @@ class TreeStore:
             result.append(parent)
             current_item = parent
         return result
-
-
-
-
