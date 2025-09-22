@@ -10,3 +10,8 @@ class TreeStore:
             self.items_by_id[item["id"]] = item
             self.children_by_parent.setdefault(item["parent"], []).append(item)
 
+    def getAll(self):
+        return self.list_items
+
+
+
