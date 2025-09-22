@@ -13,5 +13,7 @@ class TreeStore:
     def getAll(self):
         return self.list_items
 
+    def getItem(self, id):
+        return self.items_by_id.get(id)
 
 
