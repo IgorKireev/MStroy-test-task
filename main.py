@@ -16,4 +16,7 @@ class TreeStore:
     def getItem(self, id):
         return self.items_by_id.get(id)
 
+    def getChildren(self, id):
+        return self.children_by_parent.get(id, [])
+
 
